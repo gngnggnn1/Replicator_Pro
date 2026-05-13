@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Upload, Copy, Download, X, FileImage, Settings2, ShieldCheck, Zap } from 'lucide-react';
+import { Upload, Copy, Download, X, FileImage, Settings2, ShieldCheck, Zap, Sun, Moon } from 'lucide-react';
 import JSZip from 'jszip';
 
 interface ReplicationFile {
@@ -11,10 +11,16 @@ interface ReplicationFile {
 export default function App() {
   const [file, setFile] = useState<ReplicationFile | null>(null);
   const [copyCount, setCopyCount] = useState<number | ''>(5);
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const [isDragging, setIsDragging] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [progress, setProgress] = useState(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Theme management
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', isDarkMode);
+  }, [isDarkMode]);
 
   // Memory cleanup
   useEffect(() => {
@@ -117,10 +123,18 @@ export default function App() {
           </div>
           <p className="status-label">v1.2.0 // INDUSTRIAL BATCH ENGINE</p>
         </div>
-        <div className="flex items-center gap-4 bg-[#151619] border border-[#2A2B2F] px-4 py-2 rounded-lg">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-[10px] font-mono text-emerald-500/80 uppercase tracking-widest">System Ready</span>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => setIsDarkMode(!isDarkMode)}
+            className="p-2 rounded-lg bg-gray-200 dark:bg-[#151619] border border-gray-300 dark:border-[#2A2B2F] transition-colors"
+          >
+            {isDarkMode ? <Sun className="w-4 h-4 text-amber-500" /> : <Moon className="w-4 h-4 text-slate-700" />}
+          </button>
+          <div className="flex items-center gap-4 bg-gray-200 dark:bg-[#151619] border border-gray-300 dark:border-[#2A2B2F] px-4 py-2 rounded-lg">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-[10px] font-mono text-emerald-500/80 uppercase tracking-widest">System Ready</span>
+            </div>
           </div>
         </div>
       </header>

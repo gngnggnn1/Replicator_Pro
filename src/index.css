@@ -7,11 +7,19 @@
 }
 
 body {
-  @apply bg-[#0A0A0A] text-[#E4E3E0] antialiased min-h-screen font-sans;
+  @apply bg-white text-gray-900 antialiased min-h-screen font-sans transition-colors duration-300;
+}
+
+.dark body {
+  @apply bg-[#0A0A0A] text-[#E4E3E0];
 }
 
 .hardware-card {
-  @apply bg-[#151619] border border-[#2A2B2F] rounded-xl shadow-2xl;
+  @apply bg-gray-100 border border-gray-200 rounded-xl shadow-2xl transition-colors duration-300;
+}
+
+.dark .hardware-card {
+  @apply bg-[#151619] border-[#2A2B2F];
 }
 
 .status-label {
