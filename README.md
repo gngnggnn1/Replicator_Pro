@@ -1,20 +1,35 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Replicator Pro
 
-# Run and deploy your AI Studio app
+An industrial-grade batch image replicator with high-precision controls.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/6974fb0e-bdea-4b02-82b4-bb19e8423459
+- **Batch Image Replication**: Quickly generate exact copies of your original image file.
+- **Custom Naming Convention**: Replicated files are systematically named `[original_name]_[copy_number].[extension]`.
+- **Light & Dark Themes**: Fully supports both light and dark mode for your preferred viewing experience.
+- **Client-Side Processing**: All processing happens entirely within your browser for maximum privacy and performance. No server uploads required.
 
-## Run Locally
+## Instructions
 
-**Prerequisites:**  Node.js
+1. Drop or select an image file to ingest the original matrix.
+2. Select your desired number of copies using the slider or text input.
+3. Observe the generated output preview name pattern.
+4. Click **Initialize Cascade Replication** to trigger the batch processing.
+5. Save the generated `.zip` archive containing your replicated payload.
 
+## Development
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Install dependencies:
+```bash
+npm install
+```
+
+Start the application:
+```bash
+npm run dev
+```
+
+Build for production:
+```bash
+npm run build
+```
