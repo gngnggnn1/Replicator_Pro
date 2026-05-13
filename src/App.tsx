@@ -119,7 +119,7 @@ export default function App() {
         <div className="space-y-1">
           <div className="flex items-center gap-2">
             <Zap className="w-5 h-5 text-amber-500 fill-amber-500" />
-            <h1 className="text-2xl font-bold tracking-tight text-white">REPLICATOR PRO</h1>
+            <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">REPLICATOR PRO</h1>
           </div>
           <p className="status-label">v1.2.0 // INDUSTRIAL BATCH ENGINE</p>
         </div>
@@ -155,7 +155,7 @@ export default function App() {
                 onClick={() => fileInputRef.current?.click()}
                 className={`
                   relative h-80 hardware-card flex flex-col items-center justify-center p-8 cursor-pointer transition-all border-dashed
-                  ${isDragging ? 'border-amber-500 bg-amber-500/5' : 'border-[#3A3B3F] hover:border-[#4A4B4F]'}
+                  ${isDragging ? 'border-amber-500 bg-amber-500/5' : 'border-gray-300 dark:border-[#3A3B3F] hover:border-gray-400 dark:hover:border-[#4A4B4F]'}
                 `}
               >
                 <input
@@ -167,25 +167,25 @@ export default function App() {
                 />
                 
                 <div className="absolute top-4 left-4">
-                  <Upload className="w-4 h-4 text-[#4A4B4F]" />
+                  <Upload className="w-4 h-4 text-gray-400 dark:text-[#4A4B4F]" />
                 </div>
 
                 <motion.div
                   animate={isDragging ? { scale: 1.1 } : { scale: 1 }}
                   className="flex flex-col items-center gap-6"
                 >
-                  <div className="p-6 rounded-full bg-[#1A1B1E] border border-[#2A2B2F]">
-                    <FileImage className="w-12 h-12 text-[#E4E3E0] opacity-30" />
+                  <div className="p-6 rounded-full bg-gray-200 dark:bg-[#1A1B1E] border border-gray-300 dark:border-[#2A2B2F]">
+                    <FileImage className="w-12 h-12 text-gray-400 dark:text-[#E4E3E0] opacity-30" />
                   </div>
                   <div className="text-center space-y-2">
-                    <p className="text-lg font-medium text-white">Ingest Original Matrix</p>
-                    <p className="text-sm text-[#8E9299]">Drag & Drop or Click to Load Primary Image</p>
+                    <p className="text-lg font-medium text-gray-900 dark:text-white">Ingest Original Matrix</p>
+                    <p className="text-sm text-gray-500 dark:text-[#8E9299]">Drag & Drop or Click to Load Primary Image</p>
                   </div>
                 </motion.div>
                 
                 <div className="absolute bottom-4 right-4 flex items-center gap-2">
                   <ShieldCheck className="w-3 h-3 text-emerald-500/50" />
-                  <span className="text-[10px] text-[#4A4B4F] font-mono uppercase tracking-widest">Secure Local Buffer</span>
+                  <span className="text-[10px] text-gray-500 dark:text-[#4A4B4F] font-mono uppercase tracking-widest">Secure Local Buffer</span>
                 </div>
               </motion.div>
             ) : (
@@ -198,7 +198,7 @@ export default function App() {
                 {/* File Preview Card */}
                 <div className="hardware-card overflow-hidden group relative">
                   <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
-                     <span className="bg-[#151619]/80 backdrop-blur-md px-2 py-1 rounded text-[10px] font-mono text-white/50 border border-white/10 uppercase">
+                     <span className="bg-white/80 dark:bg-[#151619]/80 backdrop-blur-md px-2 py-1 rounded text-[10px] font-mono text-gray-700 dark:text-white/50 border border-gray-300 dark:border-white/10 uppercase">
                        {file.original.name}
                      </span>
                   </div>
@@ -216,14 +216,14 @@ export default function App() {
                     className="w-full h-80 object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                   />
                   
-                  <div className="p-4 bg-[#1A1B1E] border-t border-[#2A2B2F] flex justify-between items-center">
+                  <div className="p-4 bg-gray-200 dark:bg-[#1A1B1E] border-t border-gray-300 dark:border-[#2A2B2F] flex justify-between items-center">
                     <div>
-                      <p className="text-xs font-mono text-white/40 uppercase tracking-tighter">Dimensions</p>
-                      <p className="text-sm font-mono text-white">Detected Payload</p>
+                      <p className="text-xs font-mono text-gray-500 dark:text-white/40 uppercase tracking-tighter">Dimensions</p>
+                      <p className="text-sm font-mono text-gray-900 dark:text-white">Detected Payload</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-xs font-mono text-white/40 uppercase tracking-tighter">Size</p>
-                      <p className="text-sm font-mono text-white">{(file.original.size / 1024).toFixed(1)} KB</p>
+                      <p className="text-xs font-mono text-gray-500 dark:text-white/40 uppercase tracking-tighter">Size</p>
+                      <p className="text-sm font-mono text-gray-900 dark:text-white">{(file.original.size / 1024).toFixed(1)} KB</p>
                     </div>
                   </div>
                 </div>
@@ -234,7 +234,7 @@ export default function App() {
                     <div className="space-y-4">
                       <div className="flex items-center gap-2">
                         <Settings2 className="w-4 h-4 text-emerald-500" />
-                        <h2 className="text-sm font-mono tracking-widest text-[#8E9299] uppercase">Replication Parameters</h2>
+                        <h2 className="text-sm font-mono tracking-widest text-gray-500 dark:text-[#8E9299] uppercase">Replication Parameters</h2>
                       </div>
                       <div className="space-y-6">
                         <div className="space-y-2">
@@ -259,21 +259,21 @@ export default function App() {
                             value={copyCount === '' ? 1 : Math.min(1000, copyCount)}
                             disabled={isProcessing}
                             onChange={(e) => setCopyCount(parseInt(e.target.value))}
-                            className="w-full h-1 bg-[#2A2B2F] rounded-lg appearance-none cursor-pointer accent-emerald-500"
+                            className="w-full h-1 bg-gray-300 dark:bg-[#2A2B2F] rounded-lg appearance-none cursor-pointer accent-emerald-500"
                           />
-                          <div className="flex justify-between text-[10px] text-[#4A4B4F] font-mono">
+                          <div className="flex justify-between text-[10px] text-gray-500 dark:text-[#4A4B4F] font-mono">
                             <span>001</span>
                             <span>PRECISION SCALE</span>
                             <span>1000+</span>
                           </div>
                         </div>
 
-                        <div className="p-4 bg-[#1A1B1E] rounded-lg border border-[#2A2B2F] space-y-2">
+                        <div className="p-4 bg-gray-200 dark:bg-[#1A1B1E] rounded-lg border border-gray-300 dark:border-[#2A2B2F] space-y-2">
                            <p className="status-label">Output Preview</p>
                            <div className="flex flex-wrap gap-2">
-                              <span className="text-[10px] font-mono text-white/30 bg-white/5 px-2 py-0.5 rounded border border-white/10">...{file.original.name.split('.').pop()}</span>
-                              <span className="text-[10px] font-mono text-white/60">→</span>
-                              <span className="text-[10px] font-mono text-emerald-500/80">file_1.ext, file_2.ext ... file_{copyCount || 1}.ext</span>
+                              <span className="text-[10px] font-mono text-gray-500 dark:text-white/30 bg-gray-300 dark:bg-white/5 px-2 py-0.5 rounded border border-gray-400 dark:border-white/10">...{file.original.name.split('.').pop()}</span>
+                              <span className="text-[10px] font-mono text-gray-500 dark:text-white/60">→</span>
+                              <span className="text-[10px] font-mono text-emerald-700 dark:text-emerald-500/80">file_1.ext, file_2.ext ... file_{copyCount || 1}.ext</span>
                            </div>
                         </div>
                       </div>
@@ -283,11 +283,11 @@ export default function App() {
                   <div className="space-y-4">
                     {isProcessing && (
                       <div className="space-y-2">
-                        <div className="flex justify-between text-[10px] font-mono text-[#8E9299]">
+                        <div className="flex justify-between text-[10px] font-mono text-gray-500 dark:text-[#8E9299]">
                           <span>CALCULATING DELTA</span>
                           <span>{progress}%</span>
                         </div>
-                        <div className="h-1.5 w-full bg-[#1A1B1E] rounded-full overflow-hidden border border-[#2A2B2F]">
+                        <div className="h-1.5 w-full bg-gray-300 dark:bg-[#1A1B1E] rounded-full overflow-hidden border border-gray-300 dark:border-[#2A2B2F]">
                           <motion.div 
                             className="h-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]"
                             initial={{ width: 0 }}
@@ -303,8 +303,8 @@ export default function App() {
                       className={`
                         w-full group relative overflow-hidden flex items-center justify-center gap-3 py-4 rounded-xl font-bold uppercase tracking-widest text-xs transition-all
                         ${isProcessing 
-                          ? 'bg-[#1A1B1E] text-[#4A4B4F] cursor-wait' 
-                          : 'bg-emerald-500 text-black hover:bg-emerald-400 active:scale-[0.98] shadow-lg shadow-emerald-500/20'}
+                          ? 'bg-gray-200 dark:bg-[#1A1B1E] text-gray-500 dark:text-[#4A4B4F] cursor-wait' 
+                          : 'bg-emerald-500 text-white hover:bg-emerald-400 active:scale-[0.98] shadow-lg shadow-emerald-500/20'}
                       `}
                     >
                       {isProcessing ? (
@@ -326,21 +326,21 @@ export default function App() {
       </main>
 
       {/* Footer Meta */}
-      <footer className="pt-12 border-t border-[#2A2B2F] grid grid-cols-1 md:grid-cols-3 gap-8">
+      <footer className="pt-12 border-t border-gray-300 dark:border-[#2A2B2F] grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="space-y-2">
           <p className="status-label">System Integrity</p>
-          <div className="flex items-center gap-2 text-[10px] text-[#4A4B4F]">
+          <div className="flex items-center gap-2 text-[10px] text-gray-500 dark:text-[#4A4B4F]">
             <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
             <span>Memory Optimized Engine</span>
           </div>
         </div>
         <div className="space-y-2">
           <p className="status-label">Buffer Capacity</p>
-          <p className="text-[10px] text-[#4A4B4F]">Secure, non-persistent browser-based processing</p>
+          <p className="text-[10px] text-gray-500 dark:text-[#4A4B4F]">Secure, non-persistent browser-based processing</p>
         </div>
         <div className="space-y-2 md:text-right">
           <p className="status-label">Developer Console</p>
-          <p className="text-[10px] text-[#4A4B4F]">Replication Factor: λ {copyCount || 1}</p>
+          <p className="text-[10px] text-gray-500 dark:text-[#4A4B4F]">Replication Factor: λ {copyCount || 1}</p>
         </div>
       </footer>
     </div>
