@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  @apply bg-[#0A0A0A] text-[#E4E3E0] antialiased min-h-screen font-sans;
+}
+
+.hardware-card {
+  @apply bg-[#151619] border border-[#2A2B2F] rounded-xl shadow-2xl;
+}
+
+.status-label {
+  @apply font-mono text-[10px] tracking-widest uppercase opacity-50;
+}
